@@ -9,6 +9,7 @@ import { useFilters } from "../contexts/FiltersContext"
 import { LoaderCircle } from "lucide-react"
 import { format } from "date-fns"
 import { api } from "../lib/axios"
+import { formatNumber } from "../utils/formats"
 
 export const ComparePage = () => {
 
@@ -73,9 +74,9 @@ export const ComparePage = () => {
                     supply,
                     supplyAS?.um!,
                     supplyAS?.date && format(new Date(supplyAS?.date.toString().slice(0, 10)), "dd/MM/yyyy") || "-",
-                    supplyAS?.price && `S/ ${supplyAS?.price.toFixed(2)}` || "-",
+                    supplyAS?.price && `S/ ${formatNumber(supplyAS?.price)}` || "-",
                     supplyBS?.date && format(new Date(supplyBS?.date.toString().slice(0, 10)), "dd/MM/yyyy") || "-",
-                    supplyBS && `S/ ${supplyBS?.price.toFixed(2)}` || "-"]
+                    supplyBS && `S/ ${formatNumber(supplyBS?.price)}` || "-"]
             }))
 
 

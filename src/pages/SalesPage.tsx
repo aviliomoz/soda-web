@@ -12,6 +12,7 @@ import { RangeDatePicker } from "../components/RangeDatePicker"
 import { api } from "../lib/axios"
 import { RESTAURANTS } from "../utils/restaurants"
 import { SaleByDocument } from "../schemas/sale.schema"
+import { formatNumber } from "../utils/formats"
 
 export const SalesPage = () => {
 
@@ -57,9 +58,9 @@ export const SalesPage = () => {
                     <TableData width="md">{sale.document_type}</TableData>
                     <TableData width="md">{sale.document_number}</TableData>
                     <TableData width="xl">{sale.customer}</TableData>
-                    <TableData>{`S/ ${sale.gross_sale.toFixed(2)}`}</TableData>
-                    <TableData>{`S/ ${sale.taxes.toFixed(2)}`}</TableData>
-                    <TableData>{`S/ ${sale.net_sale.toFixed(2)}`}</TableData>
+                    <TableData>{`S/ ${formatNumber(sale.gross_sale)}`}</TableData>
+                    <TableData>{`S/ ${formatNumber(sale.taxes)}`}</TableData>
+                    <TableData>{`S/ ${formatNumber(sale.net_sale)}`}</TableData>
                 </TableRow>)}
             </Table>
         }

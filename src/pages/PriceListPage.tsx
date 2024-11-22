@@ -9,6 +9,7 @@ import { TableData } from "../components/ui/TableData"
 import { Download, Trash, X } from "lucide-react"
 import { ApiResponse } from "../utils/types"
 import { api } from "../lib/axios"
+import { formatNumber } from "../utils/formats"
 
 type PriceList = {
     supply: Supply,
@@ -156,13 +157,13 @@ export const PriceListPage = () => {
                 <TableData space width="lg">{line.supply.supply}</TableData>
                 <TableData><input className="outline-none w-16 bg-transparent" type="number" min={0} value={line.amount} onChange={(e) => updateAmount(line.supply, Number(e.target.value))} /></TableData>
                 <TableData>S/ <input className="outline-none w-16 bg-transparent" type="number" min={0} value={line.price} onChange={(e) => updatePrice(line.supply, Number(e.target.value))} /></TableData>
-                <TableData>{`S/ ${(line.amount * line.price).toFixed(2)}`}</TableData>
+                <TableData>{`S/ ${formatNumber(line.amount * line.price)}`}</TableData>
                 <TableData><Trash onClick={() => deleteFromPriceList(line.supply)} className="size-4 cursor-pointer" /></TableData>
             </TableRow>)}
         </Table>
 
         {priceList.length > 0 && <div className="border rounded-md shadow-md mt-4 ml-auto flex items-center gap-8 px-4 py-2.5 text-sm w-fit">
-            <p><span className="font-semibold mr-2">Total:</span>S/ {priceList.reduce((acc, curr) => acc + (curr.amount * curr.price), 0).toFixed(2)}</p>
+            <p><span className="font-semibold mr-2">Total:</span>S/ {formatNumber(priceList.reduce((acc, curr) => acc + (curr.amount * curr.price), 0))}</p>
             <button onClick={downloadExcel} className="flex items-center gap-2 bg-emerald-900 text-white px-3 py-1.5 shadow-md rounded-md hover:bg-emerald-800"><Download className="size-4" />Descargar en excel</button>
         </div>}
     </section>

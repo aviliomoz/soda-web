@@ -12,6 +12,7 @@ import { useFilters } from "../contexts/FiltersContext"
 import { RangeDatePicker } from "../components/RangeDatePicker"
 import { api } from "../lib/axios"
 import { RESTAURANTS } from "../utils/restaurants"
+import { formatNumber } from "../utils/formats"
 
 export const PurchasesPage = () => {
 
@@ -66,7 +67,7 @@ export const PurchasesPage = () => {
                     <TableData width="md">{purchase.document}</TableData>
                     <TableData>{purchase.ruc}</TableData>
                     <TableData width="lg">{purchase.supplier}</TableData>
-                    <TableData>{`S/ ${purchase.total.toFixed(2)}`}</TableData>
+                    <TableData>{`S/ ${formatNumber(purchase.total)}`}</TableData>
                 </TableRow>)}
             </Table>
         }

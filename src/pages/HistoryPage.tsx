@@ -10,6 +10,7 @@ import { format } from "date-fns"
 import { api } from "../lib/axios"
 import { PurchaseHistoryBySupply } from "../schemas/purchase.schema"
 import { Supply } from "../schemas/supply.schema"
+import { formatNumber } from "../utils/formats"
 
 export const HistoryPage = () => {
 
@@ -110,8 +111,8 @@ export const HistoryPage = () => {
                     <TableData space>{format(purchase.date, "dd/MM/yyyy")}</TableData>
                     <TableData width="lg">{purchase.supplier}</TableData>
                     <TableData>{purchase.amount}</TableData>
-                    <TableData>{`S/ ${purchase.price.toFixed(2)}`}</TableData>
-                    <TableData>{`S/ ${purchase.total.toFixed(2)}`}</TableData>
+                    <TableData>{`S/ ${formatNumber(purchase.price)}`}</TableData>
+                    <TableData>{`S/ ${formatNumber(purchase.total)}`}</TableData>
                     <TableData>{index === history.length - 1 ? "-" : calcVariation(history[index + 1].price, purchase.price)}</TableData>
                 </TableRow>)}
             </Table>
