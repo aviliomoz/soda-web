@@ -6,6 +6,7 @@ import { ApiResponse } from "../../utils/types"
 import { format } from "date-fns"
 import { PurchaseByWeek } from "../../schemas/purchase.schema"
 import { api } from "../../lib/axios"
+import { formatNumber } from "../../utils/formats"
 
 export const TotalPurchasesWidget = () => {
 
@@ -39,6 +40,6 @@ export const TotalPurchasesWidget = () => {
     }, [domain, initialDate, finalDate])
 
     return <Widget title="Total de compras" loading={loading}>
-        <p className="text-xl font-bold">{`S/ ${total.toFixed(2)}`}</p>
+        <p className="text-xl font-bold">{`S/ ${formatNumber(total)}`}</p>
     </Widget>
 }

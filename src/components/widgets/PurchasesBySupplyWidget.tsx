@@ -9,6 +9,7 @@ import { Table } from "../ui/Table"
 import { TableRow } from "../ui/TableRow"
 import { TableData } from "../ui/TableData"
 import { api } from "../../lib/axios"
+import { formatNumber } from "../../utils/formats"
 
 export const PurchasesBySupplyWidget = () => {
 
@@ -40,9 +41,9 @@ export const PurchasesBySupplyWidget = () => {
         <Table titles={["Insumo", "Cantidad", "Precio más alto", "Facturado"]}>
             {purchases.map(purchase => <TableRow key={purchase.supply}>
                 <TableData space width="lg">{purchase.supply}</TableData>
-                <TableData >{Number(purchase.amount).toFixed(2)}</TableData>
-                <TableData >{`S/ ${Number(purchase.price).toFixed(2)}`}</TableData>
-                <TableData >{`S/ ${Number(purchase.total).toFixed(2)}`}</TableData>
+                <TableData >{formatNumber(purchase.amount)}</TableData>
+                <TableData >{`S/ ${formatNumber(purchase.price)}`}</TableData>
+                <TableData >{`S/ ${formatNumber(purchase.total)}`}</TableData>
             </TableRow>)}
         </Table>
     </Widget>
