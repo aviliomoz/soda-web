@@ -1,0 +1,1 @@
+export const DOMAINS = ["wayki", "qarbon", "mezqal"] as const
