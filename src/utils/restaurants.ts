@@ -18,6 +18,7 @@ export const RESTAURANTS: Record<Domain, Restaurant> = {
 export const ACCESS: [string, Domain[]][] = [
     ["aviliomuoz@gmail.com", ["qarbon", "mezqal", "wayki"]],
     ["asistentelogisticomezqal@grupomq.pe", ["mezqal"]],
+    ["araujoalexis007@gmail.com", ["wayki"]],
 ]
 
 export const getDomainsByUser = (email: string) => {

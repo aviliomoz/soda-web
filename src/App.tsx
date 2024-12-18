@@ -12,6 +12,7 @@ import { HistoryPage } from "./pages/HistoryPage";
 import { PriceListPage } from "./pages/PriceListPage";
 import { SalesPage } from "./pages/SalesPage";
 import { SalesForm } from "./pages/SalesForm";
+import { SupplyPricesPage } from "./pages/SuppliesPricesPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/ventas" element={<SalesPage />} />
             <Route path="/ventas/actualizar" element={<SalesForm />} />
             <Route path="/compras" element={<PurchasesPage />} />
+            <Route path="/compras/insumos" element={<SupplyPricesPage />} />
             <Route path="/compras/actualizar" element={<PurchasesForm />} />
             <Route path="/compras/comparador" element={<ComparePage />} />
             <Route path="/compras/historico" element={<HistoryPage />} />
@@ -33,7 +35,7 @@ function App() {
         </Route>
         <Route path="*" element={<RedirectPage />} />
       </Routes>
-      <Toaster position="bottom-right" toastOptions={{duration: 5000}}/>
+      <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
     </Router>
   );
 }

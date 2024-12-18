@@ -36,7 +36,7 @@ export const PurchasesForm = () => {
 
             let actions: Accion[] = []
 
-            while (initialDownloadDate < finalDate) {
+            while (initialDownloadDate <= finalDate) {
 
                 const finalDownloadDate = `${getMonth(initialDownloadDate)}-${getYear(initialDownloadDate)}` === `${getMonth(finalDate)}-${getYear(finalDate)}` ? finalDate : lastDayOfMonth(initialDownloadDate)
 

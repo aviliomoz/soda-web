@@ -12,6 +12,10 @@ export const PATHS: PathGroup[] = [
             {
                 name: "Compras", url: "/compras", icon: ShoppingBag, modules: [
                     {
+                        name: "Insumos",
+                        url: "/compras/insumos"
+                    },
+                    {
                         name: "Comparador",
                         url: "/compras/comparador"
                     },

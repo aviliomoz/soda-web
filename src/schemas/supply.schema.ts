@@ -5,3 +5,11 @@ export const SupplySchema = z.object({
 })
 
 export type Supply = z.infer<typeof SupplySchema>
+
+export type LastPriceSupply = {
+    supply: string,
+    um: string,
+    category: string,
+    date: Date,
+    price: number
+}
